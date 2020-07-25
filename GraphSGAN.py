@@ -196,8 +196,8 @@ if __name__ == '__main__':
     
 
     # but we load the example of cora
-    with open('cora.dataset', 'r') as fdata:
-        dataset = pkl.load(fdata)
+    with open('cora.dataset', 'rb') as fdata:
+        dataset = pkl.load(fdata, encoding='latin1')
     gan = GraphSGAN(Generator(200, dataset.k + dataset.d), Discriminator(dataset.k + dataset.d, dataset.m), dataset, args)
     gan.train() 
     
